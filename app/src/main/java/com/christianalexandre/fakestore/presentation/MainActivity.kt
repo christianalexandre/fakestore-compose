@@ -1,4 +1,4 @@
-package com.christianalexandre.fakestore
+package com.christianalexandre.fakestore.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,8 +11,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.christianalexandre.fakestore.ui.theme.FakeStoreTheme
+import com.christianalexandre.fakestore.presentation.products_list.SimpleProductsListScreen
+import com.christianalexandre.fakestore.presentation.ui.theme.FakeStoreTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,10 +23,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             FakeStoreTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    SimpleProductsListScreen()
                 }
             }
         }
@@ -31,10 +31,13 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting(
+    name: String,
+    modifier: Modifier = Modifier,
+) {
     Text(
         text = "Hello $name!",
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
