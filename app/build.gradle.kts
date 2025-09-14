@@ -55,6 +55,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.accompanist.flowlayout)
+    implementation(libs.coil.compose)
 
     // Paging
     implementation(libs.androidx.paging.runtime)

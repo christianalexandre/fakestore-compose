@@ -1,17 +1,15 @@
-package com.christianalexandre.fakestore.presentation
+package com.christianalexandre.fakestore.presentation.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.christianalexandre.fakestore.presentation.products_list.SimpleProductsListScreen
 import com.christianalexandre.fakestore.presentation.ui.theme.FakeStoreTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,8 +20,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FakeStoreTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    SimpleProductsListScreen()
+                Scaffold(modifier = Modifier.fillMaxSize()) { _ ->
+                    MainScreen()
                 }
             }
         }

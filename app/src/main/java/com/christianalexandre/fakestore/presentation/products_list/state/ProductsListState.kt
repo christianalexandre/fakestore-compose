@@ -1,4 +1,4 @@
-package com.christianalexandre.fakestore.presentation.products_list
+package com.christianalexandre.fakestore.presentation.products_list.state
 
 import com.christianalexandre.fakestore.domain.model.Product
 

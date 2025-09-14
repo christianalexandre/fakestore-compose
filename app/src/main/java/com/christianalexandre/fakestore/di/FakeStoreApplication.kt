@@ -1,4 +1,4 @@
-package com.christianalexandre.fakestore
+package com.christianalexandre.fakestore.di
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
