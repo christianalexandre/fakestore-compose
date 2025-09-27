@@ -57,6 +57,9 @@ dependencies {
     implementation(libs.accompanist.flowlayout)
     implementation(libs.coil.compose)
 
+    // Material
+    implementation(libs.material)
+
     // Paging
     implementation(libs.androidx.paging.runtime)
     implementation(libs.androidx.paging.compose)
