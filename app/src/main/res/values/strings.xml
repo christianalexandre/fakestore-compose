@@ -2,12 +2,13 @@
     <!-- Common -->
     <string name="app_name">Fake Store</string>
     <string name="currency_format">$ %1$.2f</string>
+    <string name="retry">Try again</string>
 
     <!-- Bottom Navigation -->
     <string name="home">Home</string>
     <string name="cart">Cart</string>
 
-    <!-- Products Feature -->
+    <!-- Products List Feature -->
     <string name="products">Products</string>
     <string name="product_rating">Rating</string>
     <string name="discount_off">% OFF</string>
@@ -15,7 +16,11 @@
     <string name="empty_brand" />
     <string name="error_loading_products">Error loading products: %1$s</string>
     <string name="error_loading_more_products">Error loading more products: %1$s</string>
+    <string name="products_list_empty">List of products is empty</string>
 
     <!-- Cart Feature -->
     <string name="cart_empty">Cart is empty!</string>
+
+    <!-- Unknown errors -->
+    <string name="error_unknown">Unknown error</string>
 </resources>

@@ -1,25 +1,29 @@
 package com.christianalexandre.fakestore.presentation.main
 
-import com.christianalexandre.fakestore.R
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.ShoppingCart
-import androidx.compose.material3.*
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.christianalexandre.fakestore.R
 import com.christianalexandre.fakestore.presentation.products_list.ProductsListScreen
 
 sealed class BottomNavItem(val route: String, val labelResource: Int, val icon: ImageVector) {
@@ -41,7 +45,7 @@ fun MainScreen() {
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(BottomNavItem.Home.route) {
-                ProductsListScreen()
+                ProductsListScreen(onProductClick = { })
             }
             composable(BottomNavItem.Cart.route) {
                 CartScreen()
@@ -66,7 +70,12 @@ fun BottomNavigationBar(navController: NavHostController) {
                         restoreState = true
                     }
                 },
-                icon = { Icon(item.icon, contentDescription = stringResource(id = item.labelResource)) },
+                icon = {
+                    Icon(
+                        item.icon,
+                        contentDescription = stringResource(id = item.labelResource)
+                    )
+                },
                 label = { Text(stringResource(item.labelResource)) }
             )
         }
