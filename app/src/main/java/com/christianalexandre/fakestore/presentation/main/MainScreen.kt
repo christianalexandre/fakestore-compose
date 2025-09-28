@@ -74,7 +74,6 @@ fun MainScreen() {
                     val productId = it.arguments?.getInt(ProductDetailScreen.ARG_PRODUCT_ID)
                     if (productId != null) {
                         ProductDetailsScreen(
-                            productId = productId,
                             onNavigateUp = { navController.navigateUp() }
                         )
                     }

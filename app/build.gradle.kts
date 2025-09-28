@@ -49,7 +49,6 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
 
     // Compose
     implementation(libs.androidx.lifecycle.viewmodel.compose)
@@ -58,6 +57,7 @@ dependencies {
     implementation(libs.coil.compose)
 
     // Material
+    implementation(libs.androidx.material3)
     implementation(libs.material)
 
     // Paging

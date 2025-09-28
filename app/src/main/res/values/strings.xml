@@ -3,6 +3,7 @@
     <string name="app_name">Fake Store</string>
     <string name="currency_format">$ %1$.2f</string>
     <string name="retry">Try again</string>
+    <string name="back">Back</string>
 
     <!-- Bottom Navigation -->
     <string name="home">Home</string>
