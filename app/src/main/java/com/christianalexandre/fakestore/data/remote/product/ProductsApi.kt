@@ -6,8 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-// https://dummyjson.com/docs/products#products-limit_skip
-
 interface ProductsApi {
     @GET("/products")
     suspend fun getProducts(

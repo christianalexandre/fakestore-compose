@@ -14,7 +14,7 @@ import javax.inject.Inject
 class ProductsListViewModel
     @Inject
     constructor(
-        private val getProductsUseCase: GetProductsUseCase,
+        getProductsUseCase: GetProductsUseCase,
     ) : ViewModel() {
         val productsFlow: Flow<PagingData<Product>> =
             getProductsUseCase()
