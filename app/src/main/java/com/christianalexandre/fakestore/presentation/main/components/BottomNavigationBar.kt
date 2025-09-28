@@ -6,7 +6,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
-import com.christianalexandre.fakestore.presentation.main.navigation.BottomBarRoute
+import com.christianalexandre.fakestore.presentation.navigation.BottomBarRoute
 
 @Composable
 fun BottomNavigationBar(items: List<BottomBarRoute>, currentRoute: String?, onItemClick: (BottomBarRoute) -> Unit) {

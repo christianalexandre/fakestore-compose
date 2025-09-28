@@ -15,10 +15,10 @@ import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import com.christianalexandre.fakestore.presentation.cart.CartScreen
 import com.christianalexandre.fakestore.presentation.main.components.BottomNavigationBar
-import com.christianalexandre.fakestore.presentation.main.navigation.CartScreen
-import com.christianalexandre.fakestore.presentation.main.navigation.ProductDetailScreen
-import com.christianalexandre.fakestore.presentation.main.navigation.ProductsGraph
-import com.christianalexandre.fakestore.presentation.main.navigation.ProductsScreen
+import com.christianalexandre.fakestore.presentation.navigation.CartScreen
+import com.christianalexandre.fakestore.presentation.navigation.ProductDetailScreen
+import com.christianalexandre.fakestore.presentation.navigation.ProductsGraph
+import com.christianalexandre.fakestore.presentation.navigation.ProductsScreen
 import com.christianalexandre.fakestore.presentation.product_detail.ProductDetailsScreen
 import com.christianalexandre.fakestore.presentation.products_list.ProductsListScreen
 
@@ -57,7 +57,10 @@ fun MainScreen() {
             popEnterTransition = { EnterTransition.None },
             popExitTransition = { ExitTransition.None }
         ) {
-            navigation(startDestination = ProductsGraph.startDestination, route = ProductsGraph.route) {
+            navigation(
+                startDestination = ProductsGraph.startDestination,
+                route = ProductsGraph.route
+            ) {
                 composable(ProductsScreen.route) {
                     ProductsListScreen(onProductClick = {
                         navController.navigate(ProductDetailScreen.createRoute(it.id))
