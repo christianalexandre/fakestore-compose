@@ -36,7 +36,7 @@ This project follows the principles of **Clean Architecture**, separating the co
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/your-username/fakestore.git
+    git clone https://github.com/christianalexandre/fakestore-compose.git
     ```
 2.  Open the project in Android Studio.
 3.  Let Android Studio download the required Gradle dependencies.
@@ -49,4 +49,3 @@ This project follows the principles of **Clean Architecture**, separating the co
 *   [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) for asynchronous programming
 *   [Hilt](https://dagger.dev/hilt/) for dependency injection
 *   [Retrofit](https://square.github.io/retrofit/) for networking
-*   [JUnit](https://junit.org/junit5/) and [MockK](https://mockk.io/) for testing
