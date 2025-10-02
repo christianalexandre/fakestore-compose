@@ -125,7 +125,7 @@ private fun ProductDetailContent(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = product.price.toString(),
+                    text = stringResource(id = R.string.currency_format, product.price),
                     style = MaterialTheme.typography.headlineSmall,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.primary
@@ -141,7 +141,7 @@ private fun ProductDetailContent(
 
             item {
                 Text(
-                    text = "qweqwe",
+                    text = stringResource(R.string.product_description_label),
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold
                 )
@@ -163,7 +163,7 @@ private fun ProductDetailContent(
                 .align(Alignment.BottomCenter)
                 .padding(16.dp)
         ) {
-            Text(text = "add to cart")
+            Text(text = stringResource(id = R.string.add_to_cart))
         }
     }
 }

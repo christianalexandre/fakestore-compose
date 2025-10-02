@@ -13,11 +13,15 @@
     <string name="products">Products</string>
     <string name="product_rating">Rating</string>
     <string name="discount_off">% OFF</string>
-    <string name="error_loading_image">Error loading image</string>
     <string name="empty_brand" />
+    <string name="products_list_empty">List of products is empty</string>
+    <string name="error_loading_image">Error loading image</string>
     <string name="error_loading_products">Error loading products: %1$s</string>
     <string name="error_loading_more_products">Error loading more products: %1$s</string>
-    <string name="products_list_empty">List of products is empty</string>
+
+    <!-- Product Detail -->
+    <string name="product_description_label">Description</string>
+    <string name="add_to_cart">Add to cart</string>
 
     <!-- Cart Feature -->
     <string name="cart_empty">Cart is empty!</string>
