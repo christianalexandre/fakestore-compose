@@ -9,12 +9,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class GetProductUseCase
+class GetProduct
     @Inject
     constructor(
         private val repository: ProductsRepository,
     ) {
-        suspend operator fun invoke(id: Int): Flow<Resource<Product>> =
+        operator fun invoke(id: Int): Flow<Resource<Product>> =
             flow {
                 try {
                     emit(Resource.Loading)
