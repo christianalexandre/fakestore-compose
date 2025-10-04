@@ -86,7 +86,9 @@ fun ProductDetailsScreen(
                 }
 
                 is ProductDetailState.Success -> {
-                    ProductDetailContent(product = currentState.product)
+                    ProductDetailContent(
+                        product = currentState.product,
+                        onAddToCart = { viewModel.addToCart(currentState.product) })
                 }
             }
         }
@@ -96,6 +98,7 @@ fun ProductDetailsScreen(
 @Composable
 private fun ProductDetailContent(
     product: Product,
+    onAddToCart: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Box(modifier = modifier.fillMaxSize()) {
@@ -155,7 +158,7 @@ private fun ProductDetailContent(
         }
 
         Button(
-            onClick = { /* TODO: Add to cart */ },
+            onClick = { onAddToCart() },
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter)

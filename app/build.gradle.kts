@@ -82,6 +82,10 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
 
+    // Room
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
     // Test libraries
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -90,6 +94,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     testImplementation(libs.androidx.paging.testing)
     testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.androidx.room.testing)
 
     // Debug libraries
     debugImplementation(libs.androidx.ui.tooling)
