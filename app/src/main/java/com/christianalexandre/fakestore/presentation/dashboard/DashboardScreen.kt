@@ -1,4 +1,4 @@
-package com.christianalexandre.fakestore.presentation.main
+package com.christianalexandre.fakestore.presentation.dashboard
 
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
@@ -14,7 +14,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import com.christianalexandre.fakestore.presentation.cart.CartScreen
-import com.christianalexandre.fakestore.presentation.main.components.BottomNavigationBar
+import com.christianalexandre.fakestore.presentation.dashboard.components.BottomNavigationBar
 import com.christianalexandre.fakestore.presentation.navigation.CartScreen
 import com.christianalexandre.fakestore.presentation.navigation.ProductDetailScreen
 import com.christianalexandre.fakestore.presentation.navigation.ProductsGraph
