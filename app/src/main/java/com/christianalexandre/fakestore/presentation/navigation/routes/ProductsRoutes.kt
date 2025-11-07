@@ -1,15 +1,12 @@
-package com.christianalexandre.fakestore.presentation.navigation
+package com.christianalexandre.fakestore.presentation.navigation.routes
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.christianalexandre.fakestore.R
-
-data object ProductsGraph {
-    const val route = "products_graph"
-    val startDestination = ProductsScreen.route
-}
+import com.christianalexandre.fakestore.presentation.navigation.BottomBarRoute
+import com.christianalexandre.fakestore.presentation.navigation.NavigationRoute
 
 data object ProductsScreen : BottomBarRoute {
     override val route = "products"

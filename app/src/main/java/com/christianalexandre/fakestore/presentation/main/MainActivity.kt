@@ -8,7 +8,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import com.christianalexandre.fakestore.presentation.dashboard.MainScreen
 import com.christianalexandre.fakestore.presentation.ui.theme.FakeStoreTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,7 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             FakeStoreTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { _ ->
-                    MainScreen()
+                    AppNavigation()
                 }
             }
         }

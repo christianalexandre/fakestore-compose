@@ -8,7 +8,7 @@ import com.christianalexandre.fakestore.domain.model.Product
 import com.christianalexandre.fakestore.domain.use_case.add_items_to_cart.AddItemToCartUseCase
 import com.christianalexandre.fakestore.domain.use_case.get_product.GetProduct
 import com.christianalexandre.fakestore.domain.wrapper.Resource
-import com.christianalexandre.fakestore.presentation.navigation.ProductDetailScreen
+import com.christianalexandre.fakestore.presentation.navigation.routes.ProductDetailScreen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
