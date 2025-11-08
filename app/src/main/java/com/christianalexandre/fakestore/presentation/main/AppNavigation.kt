@@ -17,8 +17,8 @@ import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navDeepLink
 import androidx.navigation.navigation
-import com.christianalexandre.fakestore.presentation.dashboard.DashboardScreen
-import com.christianalexandre.fakestore.presentation.login.LoginScreen
+import com.christianalexandre.fakestore.presentation.feature_screens.dashboard.DashboardScreen
+import com.christianalexandre.fakestore.presentation.feature_screens.login.LoginScreen
 import com.christianalexandre.fakestore.presentation.navigation.graphs.AuthGraph
 import com.christianalexandre.fakestore.presentation.navigation.graphs.MainGraph
 import com.christianalexandre.fakestore.presentation.navigation.routes.DashboardScreen

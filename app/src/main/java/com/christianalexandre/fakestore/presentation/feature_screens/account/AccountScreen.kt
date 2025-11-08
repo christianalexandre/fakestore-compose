@@ -1,4 +1,4 @@
-package com.christianalexandre.fakestore.presentation.account
+package com.christianalexandre.fakestore.presentation.feature_screens.account
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

@@ -1,4 +1,4 @@
-package com.christianalexandre.fakestore.presentation.products_list.components
+package com.christianalexandre.fakestore.presentation.feature_screens.products_list.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable

@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.christianalexandre.fakestore.presentation.product_detail
+package com.christianalexandre.fakestore.presentation.feature_screens.product_detail
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -36,8 +36,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.christianalexandre.fakestore.R
 import com.christianalexandre.fakestore.domain.model.Product
-import com.christianalexandre.fakestore.presentation.product_detail.components.CarouselItem
-import com.christianalexandre.fakestore.presentation.product_detail.components.RatingBar
+import com.christianalexandre.fakestore.presentation.feature_screens.product_detail.components.CarouselItem
+import com.christianalexandre.fakestore.presentation.feature_screens.product_detail.components.RatingBar
 import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)

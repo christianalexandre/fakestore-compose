@@ -1,4 +1,4 @@
-package com.christianalexandre.fakestore.presentation.product_detail.components
+package com.christianalexandre.fakestore.presentation.feature_screens.product_detail.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

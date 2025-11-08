@@ -1,4 +1,4 @@
-package com.christianalexandre.fakestore.presentation.products_list
+package com.christianalexandre.fakestore.presentation.feature_screens.products_list
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
@@ -26,7 +26,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
 import com.christianalexandre.fakestore.R
 import com.christianalexandre.fakestore.domain.model.Product
-import com.christianalexandre.fakestore.presentation.products_list.components.ProductListItem
+import com.christianalexandre.fakestore.presentation.feature_screens.products_list.components.ProductListItem
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")

@@ -1,4 +1,4 @@
-package com.christianalexandre.fakestore.presentation.login
+package com.christianalexandre.fakestore.presentation.feature_screens.login
 
 import android.app.Activity
 import android.util.Log

@@ -1,4 +1,4 @@
-package com.christianalexandre.fakestore.presentation.product_detail
+package com.christianalexandre.fakestore.presentation.feature_screens.product_detail
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel

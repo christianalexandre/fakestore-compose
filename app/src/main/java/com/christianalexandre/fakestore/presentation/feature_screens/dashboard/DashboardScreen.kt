@@ -1,4 +1,4 @@
-package com.christianalexandre.fakestore.presentation.dashboard
+package com.christianalexandre.fakestore.presentation.feature_screens.dashboard
 
 import android.content.Intent
 import androidx.compose.animation.EnterTransition
@@ -15,16 +15,16 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navDeepLink
-import com.christianalexandre.fakestore.presentation.account.AccountScreen
-import com.christianalexandre.fakestore.presentation.cart.CartScreen
-import com.christianalexandre.fakestore.presentation.dashboard.components.BottomNavigationBar
+import com.christianalexandre.fakestore.presentation.feature_screens.account.AccountScreen
+import com.christianalexandre.fakestore.presentation.feature_screens.cart.CartScreen
+import com.christianalexandre.fakestore.presentation.feature_screens.dashboard.components.BottomNavigationBar
 import com.christianalexandre.fakestore.presentation.navigation.graphs.ProductsGraph
 import com.christianalexandre.fakestore.presentation.navigation.routes.AccountScreen
 import com.christianalexandre.fakestore.presentation.navigation.routes.CartScreen
 import com.christianalexandre.fakestore.presentation.navigation.routes.ProductDetailScreen
 import com.christianalexandre.fakestore.presentation.navigation.routes.ProductsScreen
-import com.christianalexandre.fakestore.presentation.product_detail.ProductDetailsScreen
-import com.christianalexandre.fakestore.presentation.products_list.ProductsListScreen
+import com.christianalexandre.fakestore.presentation.feature_screens.product_detail.ProductDetailsScreen
+import com.christianalexandre.fakestore.presentation.feature_screens.products_list.ProductsListScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
