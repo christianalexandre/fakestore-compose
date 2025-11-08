@@ -1,21 +1,17 @@
 package com.christianalexandre.fakestore.di
 
-import android.content.Context
 import android.util.Log
-import androidx.room.Room
 import com.christianalexandre.fakestore.common.Constants
-import com.christianalexandre.fakestore.data.local.AppDatabase
-import com.christianalexandre.fakestore.data.local.cart.dao.CartItemDao
 import com.christianalexandre.fakestore.data.remote.product.ProductsApi
 import com.christianalexandre.fakestore.data.repository.CartRepositoryImpl
 import com.christianalexandre.fakestore.data.repository.ProductsRepositoryImpl
 import com.christianalexandre.fakestore.domain.repository.CartRepository
 import com.christianalexandre.fakestore.domain.repository.ProductsRepository
-import dagger.Binds
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -26,20 +22,34 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-    // DB
+    // DB Old implementation
+//    @Provides
+//    @Singleton
+//    fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
+//        return Room.databaseBuilder(
+//            context,
+//            AppDatabase::class.java,
+//            "app_database"
+//        ).build()
+//    }
+//
+//    @Provides
+//    fun provideCartDao(appDatabase: AppDatabase): CartItemDao {
+//        return appDatabase.cartDao()
+//    }
+
+
+    // Firebase
     @Provides
     @Singleton
-    fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
-        return Room.databaseBuilder(
-            context,
-            AppDatabase::class.java,
-            "app_database"
-        ).build()
+    fun provideFirebaseAuth(): FirebaseAuth {
+        return FirebaseAuth.getInstance()
     }
 
     @Provides
-    fun provideCartDao(appDatabase: AppDatabase): CartItemDao {
-        return appDatabase.cartDao()
+    @Singleton
+    fun provideFirebaseFirestore(): FirebaseFirestore {
+        return FirebaseFirestore.getInstance()
     }
 
     // Network

@@ -15,31 +15,33 @@ import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 
 // TODO: This screen was did using firebase-ui library and should be replaced with a custom implementation.
 @Composable
-fun LoginScreen(
-    onLoginSuccess: () -> Unit
-) {
-    val signInLauncher = rememberLauncherForActivityResult(
-        FirebaseAuthUIActivityResultContract()
-    ) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            Log.d("LoginScreen", "Login success")
-            onLoginSuccess()
-        } else {
-            val response = result.idpResponse
-            if (response == null) {
-                Log.w("LoginScreen", "Login cancelled")
+fun LoginScreen(onLoginSuccess: () -> Unit) {
+    val signInLauncher =
+        rememberLauncherForActivityResult(
+            FirebaseAuthUIActivityResultContract(),
+        ) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                Log.d("LoginScreen", "Login success")
+                onLoginSuccess()
             } else {
-                Log.e("LoginScreen", "Login error: ${response.error?.errorCode}")
+                val response = result.idpResponse
+                if (response == null) {
+                    Log.w("LoginScreen", "Login cancelled")
+                } else {
+                    Log.e("LoginScreen", "Login error: ${response.error?.errorCode}")
+                }
             }
         }
-    }
 
     val providers = arrayListOf(AuthUI.IdpConfig.EmailBuilder().build())
 
-    val signInIntent = AuthUI.getInstance()
-        .createSignInIntentBuilder()
-        .setAvailableProviders(providers)
-        .build()
+    val signInIntent =
+        AuthUI
+            .getInstance()
+            .createSignInIntentBuilder()
+            .setAvailableProviders(providers)
+            .setCredentialManagerEnabled(false)
+            .build()
 
     LaunchedEffect(Unit) {
         signInLauncher.launch(signInIntent)
@@ -47,7 +49,7 @@ fun LoginScreen(
 
     Box(
         modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         CircularProgressIndicator()
     }
