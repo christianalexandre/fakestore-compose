@@ -1,5 +1,6 @@
 package com.christianalexandre.fakestore.presentation.dashboard
 
+import android.content.Intent
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.layout.padding
@@ -13,6 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navDeepLink
 import com.christianalexandre.fakestore.presentation.account.AccountScreen
 import com.christianalexandre.fakestore.presentation.cart.CartScreen
 import com.christianalexandre.fakestore.presentation.dashboard.components.BottomNavigationBar
@@ -26,14 +28,13 @@ import com.christianalexandre.fakestore.presentation.products_list.ProductsListS
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DashboardScreen(
-    onLogout: () -> Unit
-) {
+fun DashboardScreen(onLogout: () -> Unit) {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val bottomNavItems = listOf(ProductsScreen, CartScreen, AccountScreen)
     val currentRoute = navBackStackEntry?.destination?.route
     val shouldShowBottomBar = currentRoute in bottomNavItems.map { it.route }
+    val deepLinkUri = "app://fakestore/product_detail/{${ProductDetailScreen.ARG_PRODUCT_ID}}"
 
     Scaffold(
         bottomBar = {
@@ -47,10 +48,10 @@ fun DashboardScreen(
                             launchSingleTop = true
                             restoreState = true
                         }
-                    }
+                    },
                 )
             }
-        }
+        },
     ) { innerPadding ->
         NavHost(
             navController = navController,
@@ -59,11 +60,11 @@ fun DashboardScreen(
             enterTransition = { EnterTransition.None },
             exitTransition = { ExitTransition.None },
             popEnterTransition = { EnterTransition.None },
-            popExitTransition = { ExitTransition.None }
+            popExitTransition = { ExitTransition.None },
         ) {
             navigation(
                 startDestination = ProductsGraph.startDestination,
-                route = ProductsGraph.route
+                route = ProductsGraph.route,
             ) {
                 composable(ProductsScreen.route) {
                     ProductsListScreen(onProductClick = {
@@ -73,12 +74,19 @@ fun DashboardScreen(
 
                 composable(
                     ProductDetailScreen.route,
-                    ProductDetailScreen.navArguments
+                    ProductDetailScreen.navArguments,
+                    deepLinks =
+                        listOf(
+                            navDeepLink {
+                                uriPattern = deepLinkUri
+                                action = Intent.ACTION_VIEW
+                            },
+                        ),
                 ) {
                     val productId = it.arguments?.getInt(ProductDetailScreen.ARG_PRODUCT_ID)
                     if (productId != null) {
                         ProductDetailsScreen(
-                            onNavigateUp = { navController.navigateUp() }
+                            onNavigateUp = { navController.navigateUp() },
                         )
                     }
                 }

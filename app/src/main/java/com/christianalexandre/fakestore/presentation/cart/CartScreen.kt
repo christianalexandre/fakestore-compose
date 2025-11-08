@@ -27,56 +27,61 @@ import com.christianalexandre.fakestore.domain.model.CartItem
 import java.text.NumberFormat
 import java.util.Locale
 
-fun formatCurrency(value: Double): String {
-    return NumberFormat.getCurrencyInstance(Locale("pt", "BR")).format(value)
-}
+fun formatCurrency(value: Double): String = NumberFormat.getCurrencyInstance(Locale("pt", "BR")).format(value)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CartScreen(
-    viewModel: CartViewModel = hiltViewModel()
-) {
-    val cartItems by viewModel.cartItems.collectAsState()
+fun CartScreen(viewModel: CartViewModel = hiltViewModel()) {
+    val cartItems by viewModel.cartItems.collectAsState(initial = null)
     val cartTotal by viewModel.cartTotal.collectAsState()
 
     Scaffold(
         bottomBar = {
-            if (cartItems.isNotEmpty()) {
+            if (!cartItems.isNullOrEmpty()) {
                 CheckoutFooter(
                     total = cartTotal,
                     onCheckoutClick = {
                         // TODO: Implementar navegação para checkout
-                    }
+                    },
                 )
             }
         },
-        contentWindowInsets = WindowInsets(0)
+        contentWindowInsets = WindowInsets(0),
     ) { innerPadding ->
 
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
+            contentAlignment = Alignment.Center,
         ) {
-            if (cartItems.isEmpty()) {
-                Text(
-                    text = stringResource(R.string.cart_empty),
-                    style = MaterialTheme.typography.titleLarge,
-                    modifier = Modifier.align(Alignment.Center)
-                )
-            } else {
-                LazyColumn(
-                    modifier = Modifier.fillMaxSize(),
-                    contentPadding = PaddingValues(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(16.dp)
-                ) {
-                    items(cartItems, key = { it.productId }) { item ->
-                        CartListItem(
-                            item = item,
-                            onIncrease = { viewModel.onIncreaseQuantity(item) },
-                            onDecrease = { viewModel.onDecreaseQuantity(item) }
-                        )
-                        Divider(thickness = 0.5.dp)
+            when {
+                cartItems == null -> {
+                    CircularProgressIndicator()
+                }
+
+                cartItems!!.isEmpty() -> {
+                    Text(
+                        text = stringResource(R.string.cart_empty),
+                        style = MaterialTheme.typography.titleLarge,
+                    )
+                }
+
+                else -> {
+                    LazyColumn(
+                        modifier = Modifier.fillMaxSize(),
+                        contentPadding = PaddingValues(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(16.dp),
+                    ) {
+                        items(cartItems!!, key = { it.productId }) { item ->
+                            CartListItem(
+                                item = item,
+                                onIncrease = { viewModel.onIncreaseQuantity(item) },
+                                onDecrease = { viewModel.onDecreaseQuantity(item) },
+                            )
+                            Divider(thickness = 0.5.dp)
+                        }
                     }
                 }
             }
@@ -84,47 +89,48 @@ fun CartScreen(
     }
 }
 
-
 @Composable
 fun CartListItem(
     item: CartItem,
     onIncrease: () -> Unit,
     onDecrease: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         AsyncImage(
             model = item.thumbnail,
             contentDescription = item.title,
-            modifier = Modifier
-                .size(88.dp)
-                .clip(RoundedCornerShape(12.dp)),
-            contentScale = ContentScale.Crop
+            modifier =
+                Modifier
+                    .size(88.dp)
+                    .clip(RoundedCornerShape(12.dp)),
+            contentScale = ContentScale.Crop,
         )
 
         Spacer(Modifier.width(16.dp))
 
         Column(
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f),
         ) {
             Text(
                 text = item.title,
                 style = MaterialTheme.typography.titleMedium,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
             )
             Spacer(Modifier.height(8.dp))
             Text(
                 text = formatCurrency(item.price * item.quantity),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.primary,
-                fontWeight = FontWeight.SemiBold
+                fontWeight = FontWeight.SemiBold,
             )
         }
 
@@ -133,7 +139,7 @@ fun CartListItem(
         QuantitySelector(
             quantity = item.quantity,
             onIncrease = onIncrease,
-            onDecrease = onDecrease
+            onDecrease = onDecrease,
         )
     }
 }
@@ -143,21 +149,21 @@ fun QuantitySelector(
     quantity: Int,
     onIncrease: () -> Unit,
     onDecrease: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         IconButton(
             onClick = onDecrease,
-            modifier = Modifier.size(32.dp)
+            modifier = Modifier.size(32.dp),
         ) {
             Icon(
                 Icons.Default.Close,
                 contentDescription = "Diminuir quantidade",
-                tint = MaterialTheme.colorScheme.error
+                tint = MaterialTheme.colorScheme.error,
             )
         }
 
@@ -165,17 +171,17 @@ fun QuantitySelector(
             text = "$quantity",
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.widthIn(min = 24.dp),
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
         )
 
         IconButton(
             onClick = onIncrease,
-            modifier = Modifier.size(32.dp)
+            modifier = Modifier.size(32.dp),
         ) {
             Icon(
                 Icons.Default.Add,
                 contentDescription = "Aumentar quantidade",
-                tint = MaterialTheme.colorScheme.primary
+                tint = MaterialTheme.colorScheme.primary,
             )
         }
     }
@@ -185,41 +191,42 @@ fun QuantitySelector(
 fun CheckoutFooter(
     total: Double,
     onCheckoutClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Surface(
         modifier = modifier.fillMaxWidth(),
-        shadowElevation = 8.dp
+        shadowElevation = 8.dp,
     ) {
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 12.dp),
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 12.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+            horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             Column {
                 Text(
                     text = "Total",
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
                 Text(
                     text = formatCurrency(total),
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary
+                    color = MaterialTheme.colorScheme.primary,
                 )
             }
 
             Button(
                 onClick = onCheckoutClick,
-                modifier = Modifier.height(48.dp)
+                modifier = Modifier.height(48.dp),
             ) {
                 Text(
                     text = "Checkout",
                     style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
                 )
             }
         }
