@@ -1,9 +1,9 @@
 package com.christianalexandre.fakestore.domain.model
 
 data class CartItem(
-    val productId: Int,
-    val title: String,
-    val price: Double,
-    val quantity: Int,
-    val thumbnail: String
+    val productId: Int = -1,
+    val title: String = "",
+    val price: Double = 0.0,
+    val quantity: Int = 0,
+    val thumbnail: String = ""
 )

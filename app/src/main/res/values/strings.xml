@@ -8,6 +8,7 @@
     <!-- Bottom Navigation -->
     <string name="home">Home</string>
     <string name="cart">Cart</string>
+    <string name="account">Account</string>
 
     <!-- Products List Feature -->
     <string name="products">Products</string>

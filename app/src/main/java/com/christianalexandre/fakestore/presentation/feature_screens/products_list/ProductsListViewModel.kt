@@ -1,4 +1,4 @@
-package com.christianalexandre.fakestore.presentation.products_list
+package com.christianalexandre.fakestore.presentation.feature_screens.products_list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

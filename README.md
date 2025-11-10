@@ -8,14 +8,19 @@ The main purpose of this project is to serve as a learning resource in:
 *   **Clean Architecture:** Structuring the application for better separation of concerns, testability, and maintainability.
 *   **Android Testing:** Implementing unit and UI tests to ensure code quality.
 
-This project is also part of a post-graduation course in Mobile Application Development, specifically for the Android discipline.
+This project is also part of a post-graduation course in Mobile Application Development.
 
 ## Features
 
 *   Browse a list of products from the DummyJSON API.
 *   View product details.
 *   Add and remove products from the shopping cart.
+    * Shopping cart data is persisted in Firebase Firestore.
+* User authentication (login/registration) using Firebase Authentication.
+* Push notifications with deep linking to product detail pages.
 *   (Future) Simulate a checkout process.
+
+Note: Firebase features require a googleservices.json file in the /app/ folder. Please generate your own or contact me for the file.
 
 ## Architecture
 
@@ -40,7 +45,8 @@ This project follows the principles of **Clean Architecture**, separating the co
     ```
 2.  Open the project in Android Studio.
 3.  Let Android Studio download the required Gradle dependencies.
-4.  Run the `app` module on an emulator or a physical device.
+4.  Put Google Services file in /app/ folder. 
+5.  Run the `app` module on an emulator or a physical device.
 
 ## Tools / Dependencies
 
@@ -49,3 +55,4 @@ This project follows the principles of **Clean Architecture**, separating the co
 *   [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) for asynchronous programming
 *   [Hilt](https://dagger.dev/hilt/) for dependency injection
 *   [Retrofit](https://square.github.io/retrofit/) for networking
+*   [Firebase](https://console.firebase.google.com/) for Authentication, DataStore and Push notification.

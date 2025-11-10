@@ -1,4 +1,4 @@
-package com.christianalexandre.fakestore.presentation.dashboard.components
+package com.christianalexandre.fakestore.presentation.feature_screens.dashboard.components
 
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
