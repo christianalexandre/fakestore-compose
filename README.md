@@ -15,7 +15,12 @@ This project is also part of a post-graduation course in Mobile Application Deve
 *   Browse a list of products from the DummyJSON API.
 *   View product details.
 *   Add and remove products from the shopping cart.
+    * Shopping cart data is persisted in Firebase Firestore.
+* User authentication (login/registration) using Firebase Authentication.
+* Push notifications with deep linking to product detail pages.
 *   (Future) Simulate a checkout process.
+
+Note: Firebase features require a googleservices.json file in the /app/ folder. Please generate your own or contact me for the file.
 
 ## Architecture
 
