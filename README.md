@@ -8,7 +8,7 @@ The main purpose of this project is to serve as a learning resource in:
 *   **Clean Architecture:** Structuring the application for better separation of concerns, testability, and maintainability.
 *   **Android Testing:** Implementing unit and UI tests to ensure code quality.
 
-This project is also part of a post-graduation course in Mobile Application Development, specifically for the Android discipline.
+This project is also part of a post-graduation course in Mobile Application Development.
 
 ## Features
 
@@ -45,7 +45,8 @@ This project follows the principles of **Clean Architecture**, separating the co
     ```
 2.  Open the project in Android Studio.
 3.  Let Android Studio download the required Gradle dependencies.
-4.  Run the `app` module on an emulator or a physical device.
+4.  Put Google Services file in /app/ folder. 
+5.  Run the `app` module on an emulator or a physical device.
 
 ## Tools / Dependencies
 
@@ -54,3 +55,4 @@ This project follows the principles of **Clean Architecture**, separating the co
 *   [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) for asynchronous programming
 *   [Hilt](https://dagger.dev/hilt/) for dependency injection
 *   [Retrofit](https://square.github.io/retrofit/) for networking
+*   [Firebase](https://console.firebase.google.com/) for Authentication, DataStore and Push notification.
