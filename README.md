@@ -17,6 +17,7 @@ This project is also part of a post-graduation course in Mobile Application Deve
 *   Add and remove products from the shopping cart.
     * Shopping cart data is persisted in Firebase Firestore.
 * User authentication (login/registration) using Firebase Authentication.
+    * Used firebase-ui-auth library, which provides a complete login flow with e-mail.
 * Push notifications with deep linking to product detail pages.
 *   (Future) Simulate a checkout process.
 
