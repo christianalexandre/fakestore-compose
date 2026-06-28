@@ -8,4 +8,5 @@ interface CartRepository {
     suspend fun addItemToCart(item: CartItem)
     suspend fun removeItemFromCart(productId: Int)
     suspend fun clearCart()
+    suspend fun checkout() { }
 }

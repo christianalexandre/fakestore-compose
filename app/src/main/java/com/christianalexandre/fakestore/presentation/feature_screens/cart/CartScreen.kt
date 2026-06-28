@@ -9,8 +9,10 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -34,15 +36,21 @@ fun formatCurrency(value: Double): String = NumberFormat.getCurrencyInstance(Loc
 fun CartScreen(viewModel: CartViewModel = hiltViewModel()) {
     val cartItems by viewModel.cartItems.collectAsState(initial = null)
     val cartTotal by viewModel.cartTotal.collectAsState()
+    val snackbarHostState = remember { SnackbarHostState() }
+
+    LaunchedEffect(Unit) {
+        viewModel.checkoutEvent.collect { message ->
+            snackbarHostState.showSnackbar(message)
+        }
+    }
 
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbarHostState) },
         bottomBar = {
             if (!cartItems.isNullOrEmpty()) {
                 CheckoutFooter(
                     total = cartTotal,
-                    onCheckoutClick = {
-                        // TODO: Implementar navegação para checkout
-                    },
+                    onCheckoutClick = { viewModel.checkout() },
                 )
             }
         },
